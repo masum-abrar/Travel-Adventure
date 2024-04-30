@@ -52,7 +52,7 @@ const { user, logOut } = useContext(AuthContext);
            Contact Us
            
             </NavLink>
-            <p className=''></p>
+            <p>{user?.displayName}</p>
        
       
             </ul>
@@ -80,9 +80,11 @@ const { user, logOut } = useContext(AuthContext);
         </div>
         <div className="navbar-end">
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom ">
+    
         <div className="w-10 rounded-full " >
-          <img className='lg:tooltip'  alt="" />
+          <img className='lg:tooltip' data-tip={`user?.email`} alt="" src={user?.photoURL} />
         </div>
+    
         <div>
           
           </div>
@@ -93,7 +95,7 @@ const { user, logOut } = useContext(AuthContext);
          
            {
           !user ? <>
-         <Link to='/login'>  <a className="btn bg-rose-600 text-white">Sign In</a></Link>
+         <Link to='/login'>  <a className="btn bg-rose-600 text-white ">Sign In</a></Link>
          <Link to='/registration'> <a className="btn bg-teal-400 text-white">Sign Up</a></Link>
       </>
       :

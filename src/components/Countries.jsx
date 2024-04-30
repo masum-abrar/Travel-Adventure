@@ -8,7 +8,7 @@ export const Countries = () => {
   return (
     <div className='max-w-[1120px] mx-auto '>
        <h1 className='font-bold text-3xl text-center mt-20 mb-20'>Top Countries</h1>
-      <div className='grid grid-cols-3 gap-5'>
+      <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
       <div className=''>
             <img className='w-96 h-60 rounded-lg flex-grow' src={pic12} alt="" />
             <div className=''>

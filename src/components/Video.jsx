@@ -1,5 +1,5 @@
-import video from '../assets/vid.mp4';
-
+// import video from '../assets/vid.mp4';
+import video from '../assets/vid1.mp4';
 export const Video = () => {
   return (
     <div>

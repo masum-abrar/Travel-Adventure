@@ -18,6 +18,7 @@ import { NotFound } from "./pages/NotFound.jsx";
 import { SpotsDetails } from "./components/SpotsDetails.jsx";
 import AuthProvider from "./providers/AuthProviders.jsx";
 import { Update } from "./pages/Update.jsx";
+import { LoadingProvider } from "./components/LoadingContext.jsx";
 
 
 const router = createBrowserRouter([
@@ -84,11 +85,14 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
+    
+  <LoadingProvider>
+  <AuthProvider>
     <HelmetProvider>
    <RouterProvider router={router} />
    </HelmetProvider>
     </AuthProvider>
+  </LoadingProvider>
   </React.StrictMode>
 );
 

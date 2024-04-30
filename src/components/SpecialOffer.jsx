@@ -2,13 +2,15 @@ import pic8 from '../assets/pic8.jpg';
 import pic9 from '../assets/pic9.jpg';
 import pic10 from '../assets/pic10.jpg';
 import pic11 from '../assets/pic11.jpg';
-import video from '../assets/vid.mp4';
+// import video from '../assets/vid.mp4';
+import video from '../assets/vid1.mp4';
 
 export const SpecialOffer = () => {
   return (
-    <div className='max-w-[1120px] mx-auto'>
+   <div>
+     <div className='max-w-[1120px] mx-auto'>
         <h1 className='font-bold text-3xl text-center mt-8'>SpecialOffer</h1>
-        <div className='mt-8 flex gap-5 '>
+        <div className='mt-8 lg:flex gap-5 '>
             <div className='flex-grow'>
             <img className='w-96 h-60 rounded-lg flex-grow' src={pic8} alt="" />
             <div className='relative bottom-44 left-8'>
@@ -40,13 +42,15 @@ export const SpecialOffer = () => {
             </div>
             </div>
         </div>
-        <h2>Video Section</h2>
-            <video controls>
-                <source src={video} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            <p>This is a video section demonstrating some content.</p>
+        
         
         </div>
+        {/* <h2>Video Section</h2>
+        <video controls className='h-20'>
+            <source src={video} className='h-20' type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <p>This is a video section demonstrating some content.</p> */}
+   </div>
   )
 }
