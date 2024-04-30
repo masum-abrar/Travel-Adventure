@@ -8,7 +8,7 @@ export const Video = () => {
                 <source src={video} type="video/mp4" />
                
             </video>
-            <p>This is a video section demonstrating some content.</p>
+            
         </div>
   )
 }
