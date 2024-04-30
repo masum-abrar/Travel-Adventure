@@ -1,4 +1,4 @@
-// import video from '../assets/vid.mp4';
+
 
 export const Video = () => {
   return (
