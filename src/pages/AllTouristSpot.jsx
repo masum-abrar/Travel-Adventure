@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { SingleCard } from "../components/SingleCard";
+import { Footer } from "../components/Footer";
 
 export const AllTouristSpot = () => {
 
@@ -23,6 +24,7 @@ export const AllTouristSpot = () => {
                 spots.map(spots =><SingleCard key={spots._id} spots={spots}></SingleCard>)
             }
             </div>
+            <Footer></Footer>
         </div>
     );
 };

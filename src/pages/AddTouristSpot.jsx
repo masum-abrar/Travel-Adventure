@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2'
 //import withReactContent from 'sweetalert2-react-content'
 import { Helmet } from "react-helmet-async";
+import { Footer } from '../components/Footer';
 
 export const AddTouristSpot = () => {
     //  const MySwal = withReactContent(Swal)
@@ -48,11 +49,12 @@ export const AddTouristSpot = () => {
 
     return (
 
-        <div className="p-12 min-h-screen bg-base-200">
+   <div>
+         <div className="p-12 min-h-screen bg-base-200">
            
             <div className="">
                 <div className="text-center lg:text-left mb-8">
-                    <h1 className="text-5xl font-bold">Add Tourrist Spot!</h1>
+                    <h1 className="text-5xl font-bold text-center mt-3">Add Tourrist Spot</h1>
                 </div>
                 <div className="card shadow-2xl bg-base-100">
                     <form onSubmit={handleSpot} className="card-body">
@@ -107,12 +109,15 @@ export const AddTouristSpot = () => {
 
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn  bg-rose-600">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
+            
         </div>
+        <Footer></Footer>
+   </div>
     );
 };
 

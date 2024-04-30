@@ -20,7 +20,7 @@ export const SingleCard = ({spots}) => {
                     <div className="font-bold">Travel Time: {travel_time}</div>
                 </div>
                  <div className='card-actions justify-center mt-2'>
-                    <Link to={`/details/${_id}`}><button className='btn btn-sm bg-[#246286] text-white '>View Details</button></Link>
+                    <Link to={`/details/${_id}`}><button className='btn btn-sm bg-rose-600 text-white '>View Details</button></Link>
                 </div> 
             </div>
         </div>

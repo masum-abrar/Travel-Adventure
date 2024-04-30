@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from '../providers/AuthProviders';
 import Table from "./table";
+import { Footer } from "../components/Footer";
 
 
  export const Mylist = () => {
@@ -42,6 +43,7 @@ import Table from "./table";
                 }
             </tbody>
         </table>
+        <Footer></Footer>
         </div >
     );
 };
