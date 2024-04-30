@@ -7,7 +7,7 @@ import { Footer } from "../components/Footer";
  export const Mylist = () => {
 
     const { user, loading } = useContext(AuthContext) || {};
-    //  console.log(user);
+   
     const [place, setPlace] = useState([]);
 
 
@@ -16,7 +16,7 @@ import { Footer } from "../components/Footer";
             .then((res) => res.json())
             .then((data) => {
                 setPlace(data);
-                //    console.log(data);
+                
             });
     }, [user]);
 
