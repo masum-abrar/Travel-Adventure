@@ -17,6 +17,7 @@ import { Register } from "./pages/Register.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
 import { SpotsDetails } from "./components/SpotsDetails.jsx";
 import AuthProvider from "./providers/AuthProviders.jsx";
+import { Update } from "./pages/Update.jsx";
 
 
 const router = createBrowserRouter([
@@ -68,6 +69,11 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: <SpotsDetails></SpotsDetails>,
          loader: ({params}) => fetch(`http://localhost:5000/newspot/${params.id}`)
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({params}) => fetch(`http://localhost:5000/newspot/${params.id}`)
       },
       
     ]
