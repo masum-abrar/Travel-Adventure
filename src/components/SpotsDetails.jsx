@@ -26,7 +26,7 @@ export const SpotsDetails = () => {
                     </div>
                     <div className="w-[60%] px-24">
                         <h1 className="py-5 font-bold text-2xl sm:text-4xl">{tourists_spot_name} </h1>
-                        <p className="font-medium w-fit bg-[#2e7e8a] text-white rounded-xl px-2 py-1 text-base sm:text-xl">{country_Name}</p>
+                        <p className="font-medium w-fit bg-rose-600 text-white rounded-xl px-2 py-1 text-base sm:text-xl">{country_Name}</p>
                         <p className="py-3 font-medium text-base sm:text-xl"><span className="font-bold">Location:  </span> {location} </p>
                         
                         <hr />

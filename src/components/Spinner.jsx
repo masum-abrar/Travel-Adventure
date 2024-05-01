@@ -1,7 +1,7 @@
 // Spinner.js
 import React from 'react';
 
-const Spinner = () => (
+export const Spinner = () => (
   <div className="spinner" style={{
     border: '4px solid rgba(0, 0, 0, 0.1)',
     borderLeftColor: '#333',
@@ -13,4 +13,3 @@ const Spinner = () => (
   }}></div>
 );
 
-export default Spinner;
