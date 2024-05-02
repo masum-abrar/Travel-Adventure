@@ -7,10 +7,11 @@ import { signInWithPopup} from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { GithubAuthProvider } from "firebase/auth";
+import { Footer } from '../components/Footer';
 
 
 export const Login = () => {
-   
+  // const [user,setUser] = useState('');
     const [Success,setSuccess] = useState('');
     const provider = new GoogleAuthProvider();
     const Gitprovider = new GithubAuthProvider();
@@ -21,7 +22,7 @@ export const Login = () => {
     const HandleGoogleSignIn =()=>{
        signInWithPopup(auth,provider)
        .then(result =>{
-        MySwal.fire({
+        Myswal.fire({
             title: "User Successfully loggedin",
             icon: "success",
             showClass: {
@@ -104,22 +105,31 @@ export const Login = () => {
                       `
                     }
                   });
-                const loggedInuser =result.user;
-                setSuccess('user logged in succesfully')
+                // const loggedInuser =result.user;
+                // setSuccess('user logged in succesfully')
                
                
-        setUser(loggedInuser)
+        // setUser(loggedInuser)
+        const user =result.user;
+        setSuccess('user logged in succesfully')
+      
+        console.log(user);
+       })
+       .catch(error =>{
+        console.log('error',error.message)
+       })
                 navigate(location?.state ? location.state : '/')
                 console.log(result.user)
                 
-            })
+          
             .catch(error => {
                 console.error(error);
             })
     }
     
   return (
-    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-6 mb-6 md:ml-[20%] lg:ml-[35%] relative top-24 ">
+   <div>
+     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-6 mb-6 md:ml-[20%] lg:ml-[35%] relative top-24 bottom-20">
         <Helmet>
             <title>
                 Real State | SignIn
@@ -156,6 +166,10 @@ export const Login = () => {
  <div>
 
  </div>
+ 
   </div>
+  <Footer className=""></Footer>
+   </div>
+  
   )
 }

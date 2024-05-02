@@ -19,6 +19,8 @@ import { SpotsDetails } from "./components/SpotsDetails.jsx";
 import AuthProvider from "./providers/AuthProviders.jsx";
 import { Update } from "./pages/Update.jsx";
 import { LoadingProvider } from "./components/LoadingContext.jsx";
+import { CountrySpots } from "./components/CountrySpots.jsx";
+import PrivateRoute from "./routers/PrivateRoute.jsx";
 
 
 const router = createBrowserRouter([
@@ -42,12 +44,12 @@ const router = createBrowserRouter([
       },
       {
         path : "/addtouristspot",
-        element : <AddTouristSpot></AddTouristSpot>,
+        element : <PrivateRoute><AddTouristSpot></AddTouristSpot></PrivateRoute>,
         
       },
       {
         path : "/mylist",
-        element : <Mylist></Mylist>,
+        element : <PrivateRoute><Mylist></Mylist></PrivateRoute>
    
       },
       {
@@ -69,13 +71,18 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <SpotsDetails></SpotsDetails>,
-         loader: ({params}) => fetch(`http://localhost:5000/newspot/${params.id}`)
+         loader: ({params}) => fetch(`https://tour-server-site.vercel.app/newspot/${params.id}`)
       },
       {
         path: "/update/:id",
         element: <Update></Update>,
-        loader: ({params}) => fetch(`http://localhost:5000/newspot/${params.id}`)
+        loader: ({params}) => fetch(`https://tour-server-site.vercel.app/newspot/${params.id}`)
       },
+      {
+        path: "country/:id",
+        element: <CountrySpots></CountrySpots>,
+        loader: ({params}) => fetch(` https://tour-server-site.vercel.app/country/${params.id}`)
+      }
       
     ]
   },

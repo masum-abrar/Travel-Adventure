@@ -1,71 +1,27 @@
-import pic12 from '../assets/pic12.jpg';
-import pic13 from '../assets/pic13.jpg';
-import pic14 from '../assets/pic14.jpg';
-import pic15 from '../assets/pic15.jpg';
-import pic16 from '../assets/pic16.jpg';
-import pic17 from '../assets/pic17.jpg';
-export const Countries = () => {
-  return (
-    <div className='max-w-[1120px] mx-auto '>
-       <h1 className='font-bold text-3xl text-center mt-20 mb-20'>Top Countries</h1>
-      <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-      <div className=''>
-            <img className='w-96 h-60 rounded-lg flex-grow' src={pic12} alt="" />
-            <div className=''>
-            <h1 className='relative bottom-36 ml-40 font-bold text-xl text-white'>
-               SPAIN
-            </h1>
-          
+import { aggregateFieldEqual } from "firebase/firestore";
+import { Fade } from "react-awesome-reveal";
+
+import { Link } from "react-router-dom";
+
+
+export const Countries = ({ country }) => {
+
+    const { _id,image, short_description, country_Name } = country;
+
+
+    return (
+        <Link to={`/country/${_id}`}>
+       
+            <div className="card w-[300px] bg-base-100 shadow-xl">
+                <figure><img className="w-[340px]" src={image} alt="" /></figure>
+                <div className="card-body w-[340px] flex-grow">
+                    <h3 className="card-title text-2xl ml-5 font-bold">{country_Name}</h3>
+                    <Fade damping={0.1}>
+                        <p className="w-full p-3 rounded-2xl flex-grow">{short_description}</p>
+                    </Fade>
+                </div>
             </div>
-            </div>
-            <div className=''>
-            <img className='w-96 h-60 rounded-lg flex-grow' src={pic13} alt="" />
-            <div className=''>
-            <h1 className='relative bottom-36 ml-40 font-bold text-xl text-white'>
-            ITALY
-            </h1>
-          
-            </div>
-            </div>
-            <div className=''>
-            <img className='w-96 h-60 rounded-lg flex-grow' src={pic14} alt="" />
-            <div className=''>
-            <h1 className='relative bottom-36 ml-40 font-bold text-xl text-white'>
-              FRANCE
-            </h1>
-          
-            </div>
-            </div>
-            <div className=''>
-            <img className='w-96 h-60 rounded-lg flex-grow' src={pic15} alt="" />
-            <div className=''>
-            <h1 className='relative bottom-36 ml-40 font-bold text-xl text-white'>
-            
-                NETHERLANDS
-            </h1>
-          
-            </div>
-            </div>
-            <div className=''>
-            <img className='w-96 h-60 rounded-lg flex-grow' src={pic16} alt="" />
-            <div className=''>
-            <h1 className='relative bottom-36 ml-40 font-bold text-xl text-white'>
-              SWITHZERLAND
-            </h1>
-          
-            </div>
-            </div>
-            <div className=''>
-            <img className='w-96 h-60 rounded-lg flex-grow' src={pic17} alt="" />
-            <div className=''>
-            <h1 className='relative bottom-36 ml-40 font-bold text-xl text-white'>
-              ENGLAND
-            </h1>
-          
-            </div>
-            </div>
-      </div>
-            
-        </div>
-  )
-}
+        </Link>
+
+    );
+};

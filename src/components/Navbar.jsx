@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { AuthContext } from '../providers/AuthProviders';
+import { Tooltip } from 'react-tooltip';
+import { IoPersonOutline } from "react-icons/io5";
+
 
 export const Navbar = () => {
 
@@ -49,10 +52,10 @@ const { user, logOut } = useContext(AuthContext);
              Add list
               </NavLink>
               <NavLink to='/contact' className={({isActive})=> isActive? 'text-rose-600  font-bold' : 'font-bold'}>
-           Contact Us
+           Contact Us {user?.email}
            
             </NavLink>
-            <p>{user?.displayName}</p>
+       
        
       
             </ul>
@@ -73,7 +76,7 @@ const { user, logOut } = useContext(AuthContext);
             <NavLink to='/mylist' className={({isActive})=> isActive? ' text-rose-600 font-bold' : 'font-bold'}>
              My List
             </NavLink>
-            
+            {user?.email}
             <p></p>
      
           </ul>
@@ -82,9 +85,18 @@ const { user, logOut } = useContext(AuthContext);
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom ">
     
         <div className="w-10 rounded-full " >
-          <img className='lg:tooltip' data-tip={`user?.email`} alt="" src={user?.photoURL} />
-        </div>
-    
+        {
+                        user && <>
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle z-[9999] avatar" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} data-tooltip-place="right">
+                                {user.photoURL ? <div className="w-10 rounded-full">
+                                    <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+                                </div>
+                                    : <div className="rounded-full pt-3 pl-3 w-10"><IoPersonOutline></IoPersonOutline></div>
+                                }
+                            </div>
+                        </>
+                    }
+                    </div>
         <div>
           
           </div>
@@ -113,7 +125,8 @@ const { user, logOut } = useContext(AuthContext);
         </div>
     
 
-        
+        <Tooltip id="my-tooltip" />
       </div>
       )
 }
+

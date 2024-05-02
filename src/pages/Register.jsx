@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../providers/AuthProviders';
 import Swal from 'sweetalert2';
+import { Footer } from '../components/Footer';
 
 
 
@@ -45,7 +46,8 @@ export const Register = () => {
     }
   return (
    
-    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-6 mb-6 lg:ml-[35%] relative top-24">
+    <div>
+      <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-6 mb-6 lg:ml-[35%] relative top-24 mb-24">
          <Helmet>
             <title>Real State | SignUp</title>
          </Helmet>
@@ -83,5 +85,7 @@ export const Register = () => {
       </div>
     </form>
   </div>
+  <Footer/>
+    </div>
   )
 }

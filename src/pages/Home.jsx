@@ -10,9 +10,10 @@ import { BeatLoader } from 'react-spinners'; // Import BeatLoader from react-spi
 export const Home = () => {
   const [spots, setSpots] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [country, setCountry] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/newspot')
+    fetch('https://tour-server-site.vercel.app/newspot')
       .then(res => res.json())
       .then(data => {
         setSpots(data);
@@ -24,10 +25,25 @@ export const Home = () => {
       });
   }, []);
 
+  useEffect(() => {
+    fetch(' https://tour-server-site.vercel.app/country')
+    .then(res => res.json())
+    .then(data => {
+      setCountry(data);
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      setLoading(false);
+    });
+
+}, [])
+
+
   return (
     <div>
       <Banner />
-      <h2 className="text-4xl text-center my-12 font-bold text-sky-800">Tourists Spots</h2>
+      <h2 className="text-4xl text-center my-12 font-bold ">Tourists Spots</h2>
       {loading ? ( // Conditionally render the spinner if loading is true
         <div className="flex justify-center items-center h-64">
           <BeatLoader color="#36D7B7" loading={loading} size={40} />
@@ -39,7 +55,12 @@ export const Home = () => {
       )}
       <SpecialOffer />
       <Tesomonial />
-      <Countries />
+      <h2 className="text-4xl text-center my-12 font-bold">Countries</h2>
+      <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-y-5 ml-8">
+                {
+                    country.map(country => <Countries key={country._id} country={country}></Countries>)
+                }
+            </div>
       <Footer />
     </div>
   );

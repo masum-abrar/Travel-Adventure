@@ -24,7 +24,7 @@ export const Update = () => {
         const UpdateSpot = { image, tourists_spot_name, country_Name, location, short_description, average_cost, seasonality, travel_time, totaVisitorsPerYear};
         console.log(UpdateSpot);
 
-        fetch(`http://localhost:5000/newspot/${_id}`, {
+        fetch(`https://tour-server-site.vercel.app/newspot/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

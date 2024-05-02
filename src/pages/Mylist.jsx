@@ -12,7 +12,7 @@ import { Footer } from "../components/Footer";
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/mylist/${user?.email}`)
+        fetch(`https://tour-server-site.vercel.app/mylist/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setPlace(data);
