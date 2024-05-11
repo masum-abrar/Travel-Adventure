@@ -12,7 +12,7 @@ export const CountrySpots = () => {
     //  console.log(countryplace);
 
     useEffect(() => {
-        fetch(` https://tour-server-site.vercel.app/countyspots/${country}`)
+        fetch(`https://travel-site-black-ten.vercel.app/countyspots/${country}`)
             .then(res => res.json())
             .then(data => {
                 setCountryplace(data)

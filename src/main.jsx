@@ -71,17 +71,18 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <SpotsDetails></SpotsDetails>,
-         loader: ({params}) => fetch(`https://tour-server-site.vercel.app/newspot/${params.id}`)
+         loader: ({params}) => fetch(`https://travel-site-black-ten.vercel.app/newspot/${params.id}`)
       },
+
       {
         path: "/update/:id",
         element: <Update></Update>,
-        loader: ({params}) => fetch(`https://tour-server-site.vercel.app/newspot/${params.id}`)
+        loader: ({params}) => fetch(`https://travel-site-black-ten.vercel.app/newspot/${params.id}`)
       },
       {
         path: "country/:id",
         element: <CountrySpots></CountrySpots>,
-        loader: ({params}) => fetch(` https://tour-server-site.vercel.app/country/${params.id}`)
+        loader: ({params}) => fetch(` https://travel-site-black-ten.vercel.app/country/${params.id}`)
       }
       
     ]

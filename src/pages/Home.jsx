@@ -13,7 +13,7 @@ export const Home = () => {
   const [country, setCountry] = useState([])
 
   useEffect(() => {
-    fetch('https://tour-server-site.vercel.app/newspot')
+    fetch('https://travel-site-black-ten.vercel.app/newspot')
       .then(res => res.json())
       .then(data => {
         setSpots(data);
@@ -26,7 +26,7 @@ export const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch(' https://tour-server-site.vercel.app/country')
+    fetch(' https://travel-site-black-ten.vercel.app/country')
     .then(res => res.json())
     .then(data => {
       setCountry(data);

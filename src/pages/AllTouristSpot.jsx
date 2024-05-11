@@ -10,7 +10,7 @@ export const AllTouristSpot = () => {
     const [sortOption, setSortOption] = useState("default");
 
     useEffect(() => {
-        fetch('https://tour-server-site.vercel.app/newspot')
+        fetch('https://travel-site-black-ten.vercel.app/newspot')
         .then(res => res.json())
         .then((data) => {
             setSpots(data);
