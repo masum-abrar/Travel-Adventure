@@ -30,4 +30,4 @@ The Travel Adventure Website is an immersive platform designed to inspire and fa
 * responsive for all devices
 
 
-<strong> Category is Europe </strong>
+
