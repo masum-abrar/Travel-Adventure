@@ -1,73 +1,103 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
+export const Testimonial = () => {
+  const testimonials = [
+    {
+      quote: "Highly recommended for anyone looking for a better Tour Service. The attention to detail was exceptional!",
+      name: "Md. Abrar",
+      role: "Travel Enthusiast",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80"
+    },
+    {
+      quote: "One of the best tour services you will ever experience. Our guide made the trip unforgettable!",
+      name: "Ms. Roshni",
+      role: "Adventure Seeker",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80"
+    },
+    {
+      quote: "All services were excellent. The guides were knowledgeable and went above and beyond to help us.",
+      name: "Sabila Animi",
+      role: "Cultural Explorer",
+      avatar: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80"
+    }
+  ];
 
-export const Tesomonial = () => {
   return (
-    <div>
-<section className="my-8  text-gray-100 mb-10">
-	<div className="container flex flex-col items-center mx-auto mb-12 md:p-10 md:px-12">
-		<h1 className="p-4 text-4xl font-semibold text-black leading-none text-center">What our customers are saying about us</h1>
-	</div>
-	<div className="container flex flex-col items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
-		<div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg w-80 h-48 mb-28">
-			<div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-900">
-				<p className="relative px-6 py-1 text-lg italic text-center text-gray-100">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-8 h-8 text-violet-400">
-						<path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
-						<path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
-					</svg>Highly Recomended for anyone looking for a better Tour Service 
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute right-0 w-8 h-8 text-violet-400">
-						<path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
-						<path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
-					</svg>
-				</p>
-			</div>
-			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-violet-400 text-gray-900">
-				<img src="https://source.unsplash.com/50x50/?portrait?1" alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-700" />
-				<p className="text-xl font-semibold leading-tight">Md .Abrar</p>
-				<p className="text-sm uppercase">Abrar</p>
-			</div>
-		</div>
-		<div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg w-80 h-48 mb-28">
-			<div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-900">
-				<p className="relative px-6 py-1 text-lg italic text-center text-gray-100">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-8 h-8 text-violet-400">
-						<path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
-						<path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
-					</svg>One of the best tour services you will ever see.
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute right-0 w-8 h-8 text-violet-400">
-						<path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
-						<path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
-					</svg>
-				</p>
-			</div>
-			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-violet-400 text-gray-900">
-				<img src="https://source.unsplash.com/50x50/?portrait?2" alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-700" />
-				<p className="text-xl font-semibold leading-tight">MS. Roshni</p>
-				<p className="text-sm uppercase">Roshni</p>
-			</div>
-		</div>
-		<div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg w-80 h-48 mb-28">
-			<div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-900">
-				<p className="relative px-6 py-1 text-lg italic text-center text-gray-100">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-8 h-8 text-violet-400">
-						<path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
-						<path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
-					</svg>All services are good. Guide are very helpfull.
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute right-0 w-8 h-8 text-violet-400">
-						<path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
-						<path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
-					</svg>
-				</p>
-			</div>
-			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-violet-400 text-gray-900">
-				<img src="https://source.unsplash.com/50x50/?portrait?3" alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-700" />
-				<p className="text-xl font-semibold leading-tight">Sabila Animi</p>
-				<p className="text-sm uppercase">Sabila</p>
-			</div>
-		</div>
-		
-	</div>
-</section>
+    <div className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <span className="inline-block px-3 py-1 text-sm font-medium text-rose-600 bg-rose-50 dark:bg-rose-900/30 rounded-full mb-4">
+            Client Testimonials
+          </span>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+            What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-rose-600">Customers Say</span>
+          </h1>
+          <p className="mt-5 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-400">
+            Hear from travelers who've experienced our exceptional service
+          </p>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div 
+              key={index}
+              className="relative group overflow-hidden rounded-3xl shadow-lg hover:shadow-xl dark:hover:shadow-rose-900/30 transition-all duration-500"
+            >
+              {/* Quote Card */}
+              <div className="relative h-full p-8 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-3xl">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-16 h-16 -mr-4 -mt-4 bg-rose-500/10 dark:bg-rose-500/20 rounded-full"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 -ml-4 -mb-4 bg-rose-500/10 dark:bg-rose-500/20 rounded-full"></div>
+                
+                {/* Quote icon */}
+                <svg 
+                  className="w-10 h-10 mb-6 text-rose-500/30 dark:text-rose-500/40" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="currentColor"
+                >
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                
+                {/* Testimonial text */}
+                <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                  {testimonial.quote}
+                </p>
+                
+                {/* Author */}
+                <div className="flex items-center">
+                  <img 
+                    src={testimonial.avatar} 
+                    alt={testimonial.name} 
+                    className="w-12 h-12 rounded-full object-cover border-2 border-rose-500/20 dark:border-rose-500/30"
+                  />
+                  <div className="ml-4">
+                    <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
+                    <p className="text-sm text-rose-600 dark:text-rose-400">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Hover effect border */}
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-rose-500/20 dark:group-hover:border-rose-500/30 rounded-3xl pointer-events-none transition-all duration-300"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-20 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            Ready to experience it yourself?
+          </h3>
+         <Link to='alltouristspot'>
+		  <button className="px-8 py-4 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-medium rounded-full hover:from-rose-600 hover:to-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl shadow-rose-500/20">
+            Book Your Adventure Now
+          </button>
+		 </Link>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};

@@ -6,127 +6,159 @@ import { IoPersonOutline } from "react-icons/io5";
 
 
 export const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
 
-const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut()
+      .then(() => console.log('Logged out'))
+      .catch((error) => console.error(error));
+  };
 
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme || 'light';
+  });
 
-    const handleLogout = () => {
-        logOut()
-            .then(() => console.log('logOut'))
-            .catch(error => console.error(error))
-    }
+  useEffect(() => {
+    document.querySelector('html').setAttribute('data-theme', theme);
+  }, [theme]);
 
-    const [theme, setTheme] = useState(() => {
-    
-        const savedTheme = localStorage.getItem('theme');
-        return savedTheme || 'light';
-    });
+  const handleToggle = (e) => {
+    const newTheme = e.target.checked ? 'night' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
 
-    useEffect(() => {
-        
-        document.querySelector('html').setAttribute('data-theme', theme);
-    }, [theme]);
-
-    const handleToggle = (e) => {
-        const newTheme = e.target.checked ? 'night' : 'light';
-        setTheme(newTheme);
-        
-        localStorage.setItem('theme', newTheme);
-    };
-  console.log(theme)
   return (
-    <div className={`navbar absolute max-w-[1120px] ml-28 `}>
+   <div className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${theme === 'light' ? 'bg-white shadow-md' : 'bg-black/40 backdrop-blur-sm text-white'}`}>
+  <div className="navbar container max-w-[1170px] mx-auto px-4 py-3 flex justify-between items-center">
+    
+    {/* Left Start: Logo + Mobile Dropdown */}
+    <div className="navbar-start flex items-center gap-4">
+      <div className="dropdown lg:hidden">
+        <label tabIndex={0} className="btn btn-ghost p-2">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] shadow-lg rounded-md bg-base-100 w-52 space-y-2">
+          <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-rose-600 font-bold' : 'font-medium'}>Home</NavLink></li>
+          <li><NavLink to='/mylist' className={({ isActive }) => isActive ? 'text-rose-600 font-bold' : 'font-medium'}>My List</NavLink></li>
+          <li><NavLink to='/addtouristspot' className={({ isActive }) => isActive ? 'text-rose-600 font-bold' : 'font-medium'}>Add Spot</NavLink></li>
+           <li><NavLink to='/alltouristspot' className={({ isActive }) => isActive ? 'text-rose-600 font-bold' : 'font-medium'}>All Spot</NavLink></li>
+        </ul>
+      </div>
+      <Link to='/' className="flex items-center space-x-2">
+  <img 
+    src="/logo.png" 
+    alt="Travel Logo" 
+    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+  />
+  <span className="text-xl sm:text-2xl font-extrabold text-rose-600">
+    Travel
+  </span>
+</Link>
 
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+    </div>
+
+    {/* Center Nav Items (Desktop Only) */}
+    <div className="navbar-center hidden lg:flex">
+      <ul className="menu menu-horizontal gap-6 text-base font-semibold">
+        <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-rose-600' : 'hover:text-rose-600'}>Home</NavLink></li>
+        <li><NavLink to='/alltouristspot' className={({ isActive }) => isActive ? 'text-rose-600' : 'hover:text-rose-600'}>All Spots</NavLink></li>
+        <li><NavLink to='/addtouristspot' className={({ isActive }) => isActive ? 'text-rose-600' : 'hover:text-rose-600'}>Add Spot</NavLink></li>
+        <li><NavLink to='/mylist' className={({ isActive }) => isActive ? 'text-rose-600' : 'hover:text-rose-600'}>My List</NavLink></li>
+      </ul>
+    </div>
+
+    {/* End Section: Avatar + Theme + Buttons */}
+    <div className="navbar-end flex items-center gap-4">
+      {/* Avatar */}
+      {user && (
+        <div className="tooltip tooltip-bottom" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}>
+          {user.photoURL ? (
+            <img src={user.photoURL} alt="user" className="w-10 h-10 rounded-full object-cover border-2 border-white" />
+          ) : (
+            <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-200">
+              <IoPersonOutline size={20} />
             </div>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1]  shadow bg-base-100 rounded-box w-52 gap-10 text-black">
-            <NavLink to='/' className={({isActive})=> isActive ? 
-            'border-solid border border-lime-400 rounded  font-bold   ' : 'text-rose-600 font-bold'
-            }>
-           Home
-            </NavLink>
-                <NavLink to='/updateprofile' className={({isActive})=> isActive? 'text-rose-600 font-bold' : 'font-bold'}>
-             Add list
-              </NavLink>
-              <NavLink to='/contact' className={({isActive})=> isActive? 'text-rose-600  font-bold' : 'font-bold'}>
-           Contact Us {user?.email}
-           
-            </NavLink>
-       
-       
-      
-            </ul>
-          </div>
-          <a className="btn btn-ghost text-xl">Travel</a>
+          )}
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-10 text-black">
-          <NavLink to='/' className={({isActive})=> isActive? ' text-rose-600  font-bold   ' : 'font-bold'}>
-           Home
-            </NavLink>
-              <NavLink to='/alltouristspot' className={({isActive})=> isActive? ' text-rose-600   font-bold' : 'font-bold'}>
-              All Tourists Spot
-              </NavLink>
-              <NavLink to='/addtouristspot' className={({isActive})=> isActive? ' text-rose-600 font-bold' : 'font-bold'}>
-              Add Tourists Spot
-            </NavLink>
-            <NavLink to='/mylist' className={({isActive})=> isActive? ' text-rose-600 font-bold' : 'font-bold'}>
-             My List
-            </NavLink>
-            {user?.email}
-            <p></p>
-     
-          </ul>
-        </div>
-        <div className="navbar-end">
-        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom ">
-    
-        <div className="w-10 rounded-full " >
-        {
-                        user && <>
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle z-[9999] avatar" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} data-tooltip-place="right">
-                                {user.photoURL ? <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
-                                </div>
-                                    : <div className="rounded-full pt-3 pl-3 w-10"><IoPersonOutline></IoPersonOutline></div>
-                                }
-                            </div>
-                        </>
-                    }
-                    </div>
-        <div>
-          
-          </div>
-         
-      </div>
-    
-       <>
-         
-           {
-          !user ? <>
-         <Link to='/login'>  <a className="btn bg-rose-600 text-white ">Sign In</a></Link>
-         <Link to='/registration'> <a className="btn bg-teal-400 text-white">Sign Up</a></Link>
-      </>
-      :
-      
-      <Link to='/login'><a  className="btn bg-rose-600 text-white" onClick={handleLogout}>Logout</a></Link>
-    
-      } 
-      </>
-      <label className="cursor-pointer grid place-items-center ml-4">
-  <input onChange={handleToggle} type="checkbox" value="synthwave" className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"/>
-  <svg className="col-start-1 row-start-1 stroke-base-100 fill-base-100" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
-  <svg className="col-start-2 row-start-1 stroke-base-100 fill-base-100" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-</label>
-    
-        </div>
-    
+      )}
 
-        <Tooltip id="my-tooltip" />
-      </div>
-      )
-}
+      {/* Auth Buttons */}
+ <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4">
+  {!user ? (
+    <>
+      {/* Sign In */}
+      <Link 
+        to="/login" 
+        className="relative px-4 py-2 text-xs sm:text-sm md:text-base w-auto rounded-full bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium shadow-md hover:shadow-lg hover:from-rose-600 hover:to-rose-700 transition-all duration-300 group"
+      >
+        <span className="relative z-10 flex items-center justify-center">
+          Sign In
+          <svg 
+            className="w-4 h-4 ml-1 sm:ml-2 transition-transform duration-300 group-hover:translate-x-1" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+          </svg>
+        </span>
+      </Link>
+
+      {/* Sign Up */}
+      <Link 
+        to="/registration" 
+        className="relative px-4 py-2 text-xs sm:text-sm md:text-base w-auto rounded-full bg-gradient-to-r from-teal-400 to-teal-500 text-white font-medium shadow-md hover:shadow-lg hover:from-teal-500 hover:to-teal-600 transition-all duration-300 group"
+      >
+        <span className="relative z-10 flex items-center justify-center">
+          Sign Up
+          <svg 
+            className="w-4 h-4 ml-1 sm:ml-2 transition-transform duration-300 group-hover:translate-x-1" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+          </svg>
+        </span>
+      </Link>
+    </>
+  ) : (
+    /* Logout */
+    <button 
+      onClick={handleLogout} 
+      className="relative px-4 py-2 text-xs sm:text-sm md:text-base w-auto rounded-full bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium shadow-md hover:shadow-lg hover:from-rose-600 hover:to-rose-700 transition-all duration-300 group"
+    >
+      <span className="relative z-10 flex items-center justify-center">
+        Logout
+        <svg 
+          className="w-4 h-4 ml-1 sm:ml-2 transition-transform duration-300 group-hover:translate-x-1" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+      </span>
+    </button>
+  )}
+</div>
+
+
+
+
+      {/* Theme Toggle */}
+    
+    </div>
+
+    <Tooltip id="my-tooltip" />
+  </div>
+</div>
+
+  );
+};
+
 
