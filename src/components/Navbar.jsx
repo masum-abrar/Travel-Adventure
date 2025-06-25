@@ -31,7 +31,7 @@ export const Navbar = () => {
 
   return (
    <div className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${theme === 'light' ? 'bg-white shadow-md' : 'bg-black/40 backdrop-blur-sm text-white'}`}>
-  <div className="navbar container max-w-[1170px] mx-auto px-4 py-3 flex justify-between items-center">
+  <div className="navbar container max-w-[1130px] mx-auto px-4 py-3 flex justify-between items-center">
     
     {/* Left Start: Logo + Mobile Dropdown */}
     <div className="navbar-start flex items-center gap-4">
@@ -87,44 +87,45 @@ export const Navbar = () => {
       )}
 
       {/* Auth Buttons */}
- <div className="flex  items-center gap-2 sm:gap-3 md:gap-4">
+ <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4">
   {!user ? (
     <>
       {/* Sign In */}
-      <Link 
-        to="/login" 
-        className="relative px-4 py-2 text-xs sm:text-sm md:text-base w-auto rounded-full bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium shadow-md hover:shadow-lg hover:from-rose-600 hover:to-rose-700 transition-all duration-300 group"
-      >
-        <span className="relative z-10 flex items-center justify-center">
-          Sign In
-          <svg 
-            className="w-4 h-4 ml-1 sm:ml-2 transition-transform duration-300 group-hover:translate-x-1" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-          </svg>
-        </span>
-      </Link>
+<Link 
+  to="/login" 
+  className="relative px-3 lg:px-4 py-1.5 lg:py-2 text-[10px] sm:text-xs md:text-sm w-auto rounded-full bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium shadow-md hover:shadow-lg hover:from-rose-600 hover:to-rose-700 transition-all duration-300 group"
+>
+  <span className="relative z-10 flex items-center justify-center">
+    Sign In
+    <svg 
+      className="w-3 h-3 ml-1 sm:ml-1.5 transition-transform duration-300 group-hover:translate-x-1" 
+      fill="none" 
+      stroke="currentColor" 
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+    </svg>
+  </span>
+</Link>
 
-      {/* Sign Up */}
-      <Link 
-        to="/registration" 
-        className="relative px-4 py-2 text-xs sm:text-sm md:text-base w-auto rounded-full bg-gradient-to-r from-teal-400 to-teal-500 text-white font-medium shadow-md hover:shadow-lg hover:from-teal-500 hover:to-teal-600 transition-all duration-300 group"
-      >
-        <span className="relative z-10 flex items-center justify-center">
-          Sign Up
-          <svg 
-            className="w-4 h-4 ml-1 sm:ml-2 transition-transform duration-300 group-hover:translate-x-1" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-          </svg>
-        </span>
-      </Link>
+{/* Sign Up */}
+<Link 
+  to="/registration" 
+  className="relative px-3 lg:px-4 py-1.5 lg:py-2 text-[10px] sm:text-xs md:text-sm w-auto rounded-full bg-gradient-to-r from-teal-400 to-teal-500 text-white font-medium shadow-md hover:shadow-lg hover:from-teal-500 hover:to-teal-600 transition-all duration-300 group"
+>
+  <span className="relative z-10 flex items-center justify-center">
+    Sign Up
+    <svg 
+      className="w-3 h-3 ml-1 sm:ml-1.5 transition-transform duration-300 group-hover:translate-x-1" 
+      fill="none" 
+      stroke="currentColor" 
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+    </svg>
+  </span>
+</Link>
+
     </>
   ) : (
     /* Logout */

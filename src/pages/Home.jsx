@@ -54,10 +54,10 @@ export const Home = () => {
  <div className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white ">
   {/* Modern Section Header */}
   <div className="text-center mb-16 max-w-4xl mx-auto">
-    <span className="inline-block px-4 py-2 text-sm font-medium text-rose-600 bg-rose-50 dark:bg-rose-900/20 rounded-full mb-4">
+    <span className="inline-block px-4 py-2 text-sm font-medium text-rose-600 bg-rose-50  rounded-full mb-4">
       Must-Visit Locations
     </span>
-    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
+    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 ">
       Discover <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-rose-600">Tourist Spots</span>
     </h2>
     <div className="mt-6 h-1 w-24 bg-gradient-to-r from-rose-400 to-rose-600 mx-auto rounded-full"></div>
@@ -75,7 +75,7 @@ export const Home = () => {
           margin: '0 auto',
         }}
       />
-      <p className="text-gray-500 dark:text-gray-400">Discovering amazing spots...</p>
+      <p className="text-gray-500 ">Discovering amazing spots...</p>
     </div>
   ) : (
     <>
@@ -117,7 +117,7 @@ export const Home = () => {
     <span className="inline-block px-4 py-2 text-sm font-medium text-rose-600 bg-rose-50  rounded-full mb-4">
       Explore The World
     </span>
-    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
+    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 ">
       Discover <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-rose-600">Beautiful Countries</span>
     </h2>
     <div className="mt-6 h-1 w-24 bg-gradient-to-r from-rose-400 to-rose-600 mx-auto rounded-full"></div>
