@@ -87,7 +87,7 @@ export const Navbar = () => {
       )}
 
       {/* Auth Buttons */}
- <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4">
+ <div className="flex  items-center gap-2 sm:gap-3 md:gap-4">
   {!user ? (
     <>
       {/* Sign In */}

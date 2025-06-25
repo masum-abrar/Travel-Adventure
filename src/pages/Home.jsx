@@ -8,6 +8,7 @@ import { SingleCard } from '../components/SingleCard';
 import { Navbar } from '../components/Navbar';
 import { BeatLoader } from 'react-spinners'; // Import BeatLoader from react-spinners
 import { Testimonial } from '../components/Tesomonial';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
   const [spots, setSpots] = useState([]);
@@ -50,7 +51,7 @@ export const Home = () => {
   {/* Banner comes after Navbar */}
   <Banner />
 
- <div className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+ <div className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white ">
   {/* Modern Section Header */}
   <div className="text-center mb-16 max-w-4xl mx-auto">
     <span className="inline-block px-4 py-2 text-sm font-medium text-rose-600 bg-rose-50 dark:bg-rose-900/20 rounded-full mb-4">
@@ -90,15 +91,17 @@ export const Home = () => {
       {/* View More Button (Conditional) */}
       {spots.length > 6 && (
         <div className="text-center mt-16">
-          <button 
+          <Link to='/alltouristspot'>
+<button 
             className="px-8 py-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium rounded-full hover:from-rose-600 hover:to-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl shadow-rose-500/20"
-            onClick={() => window.location.href = '/alltouristspot'} // Redirect to AllTouristSpot page
+           
           >
             View More Spots
              <svg className="w-4 h-4 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
       </svg>
           </button>
+          </Link>
         </div>
       )}
     </>
@@ -108,10 +111,10 @@ export const Home = () => {
   <SpecialOffer />
   <Testimonial/>  
 
- <div className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+ <div className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white ">
   {/* Modern Section Header */}
   <div className="text-center mb-16 max-w-4xl mx-auto">
-    <span className="inline-block px-4 py-2 text-sm font-medium text-rose-600 bg-rose-50 dark:bg-rose-900/20 rounded-full mb-4">
+    <span className="inline-block px-4 py-2 text-sm font-medium text-rose-600 bg-rose-50  rounded-full mb-4">
       Explore The World
     </span>
     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
@@ -131,8 +134,9 @@ export const Home = () => {
 
   {/* Optional View More Button */}
   <div className="text-center mt-16">
+   <Link to='/alltouristspot'> 
     <button className="px-8 py-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-medium rounded-full hover:from-rose-600 hover:to-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl shadow-rose-500/20"
-     onClick={() => window.location.href = '/alltouristspot'} // Redirect to AllTouristSpot page
+    
           >
     
       View All Destinations
@@ -140,10 +144,11 @@ export const Home = () => {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
       </svg>
     </button>
+   </Link>
   </div>
 </div>
 
-  <Footer />
+ 
 </div>
 
   );
