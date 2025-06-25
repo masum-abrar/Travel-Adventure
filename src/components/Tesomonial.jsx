@@ -27,13 +27,13 @@ export const Testimonial = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-3 py-1 text-sm font-medium text-rose-600 bg-rose-50 dark:bg-rose-900/30 rounded-full mb-4">
+          <span className="inline-block px-3 py-1 text-sm font-medium text-rose-600 bg-rose-50  rounded-full mb-4">
             Client Testimonials
           </span>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-bold text-gray-900  sm:text-5xl lg:text-6xl">
             What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-rose-600">Customers Say</span>
           </h1>
-          <p className="mt-5 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-400">
+          <p className="mt-5 max-w-2xl mx-auto text-xl text-gray-500 ">
             Hear from travelers who've experienced our exceptional service
           </p>
         </div>
@@ -43,17 +43,17 @@ export const Testimonial = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="relative group overflow-hidden rounded-3xl shadow-lg hover:shadow-xl dark:hover:shadow-rose-900/30 transition-all duration-500"
+              className="relative group overflow-hidden rounded-3xl shadow-lg hover:shadow-xl  transition-all duration-500"
             >
               {/* Quote Card */}
-              <div className="relative h-full p-8 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-3xl">
+              <div className="relative h-full p-8 bg-white  border border-gray-100  rounded-3xl">
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-16 h-16 -mr-4 -mt-4 bg-rose-500/10 dark:bg-rose-500/20 rounded-full"></div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 -ml-4 -mb-4 bg-rose-500/10 dark:bg-rose-500/20 rounded-full"></div>
+                <div className="absolute top-0 right-0 w-16 h-16 -mr-4 -mt-4 bg-rose-500/10  rounded-full"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 -ml-4 -mb-4 bg-rose-500/10  rounded-full"></div>
                 
                 {/* Quote icon */}
                 <svg 
-                  className="w-10 h-10 mb-6 text-rose-500/30 dark:text-rose-500/40" 
+                  className="w-10 h-10 mb-6 text-rose-500/30 " 
                   xmlns="http://www.w3.org/2000/svg" 
                   viewBox="0 0 24 24" 
                   fill="currentColor"
@@ -62,7 +62,7 @@ export const Testimonial = () => {
                 </svg>
                 
                 {/* Testimonial text */}
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                <p className="text-lg text-gray-700  mb-8 leading-relaxed">
                   {testimonial.quote}
                 </p>
                 
@@ -71,24 +71,24 @@ export const Testimonial = () => {
                   <img 
                     src={testimonial.avatar} 
                     alt={testimonial.name} 
-                    className="w-12 h-12 rounded-full object-cover border-2 border-rose-500/20 dark:border-rose-500/30"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-rose-500/20 "
                   />
                   <div className="ml-4">
-                    <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
-                    <p className="text-sm text-rose-600 dark:text-rose-400">{testimonial.role}</p>
+                    <h4 className="font-bold text-gray-900 ">{testimonial.name}</h4>
+                    <p className="text-sm text-rose-600 ">{testimonial.role}</p>
                   </div>
                 </div>
               </div>
               
               {/* Hover effect border */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-rose-500/20 dark:group-hover:border-rose-500/30 rounded-3xl pointer-events-none transition-all duration-300"></div>
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-rose-500/20  rounded-3xl pointer-events-none transition-all duration-300"></div>
             </div>
           ))}
         </div>
 
         {/* CTA Section */}
         <div className="mt-20 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h3 className="text-2xl font-bold text-gray-900  mb-6">
             Ready to experience it yourself?
           </h3>
          <Link to='alltouristspot'>

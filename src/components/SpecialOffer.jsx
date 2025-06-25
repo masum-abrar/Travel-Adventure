@@ -34,17 +34,17 @@ const videoRef = useRef();
   ];
 
   return (
-    <div className="py-20 bg-white dark:from-gray-900 dark:to-gray-800">
+    <div className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-3 py-1 text-sm font-medium text-rose-600 bg-rose-50 dark:bg-rose-900/30 rounded-full mb-4">
+          <span className="inline-block px-3 py-1 text-sm font-medium text-rose-600 bg-rose-50  rounded-full mb-4">
             Limited Time Offers
           </span>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-bold text-gray-900  sm:text-5xl lg:text-6xl">
             Discover <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-rose-600">Exclusive Deals</span>
           </h1>
-          <p className="mt-5 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-400">
+          <p className="mt-5 max-w-2xl mx-auto text-xl text-gray-500 ">
             Unlock incredible savings on your next adventure with our special promotions
           </p>
         </div>
@@ -54,7 +54,7 @@ const videoRef = useRef();
           {offers.map((offer, index) => (
             <div 
               key={index}
-              className="relative group overflow-hidden rounded-3xl shadow-lg hover:shadow-xl dark:hover:shadow-rose-900/30 transition-all duration-500 h-[400px]"
+              className="relative group overflow-hidden rounded-3xl shadow-lg hover:shadow-xl  transition-all duration-500 h-[400px]"
             >
               {/* Image with gradient overlay */}
               <div className="absolute inset-0">
@@ -86,7 +86,7 @@ const videoRef = useRef();
         </div>
 
         {/* Video Section */}
-        <div className="mt-24 bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700">
+        <div className="mt-24 bg-white  rounded-3xl overflow-hidden shadow-2xl border border-gray-100 ">
         <div className="relative aspect-w-16 aspect-h-9">
           <video
             autoPlay
@@ -101,7 +101,7 @@ const videoRef = useRef();
 
           {/* Overlay Content */}
           <div className="absolute inset-0 flex items-center justify-center px-4">
-            <div className="text-center px-4 py-6 sm:px-6 sm:py-8 backdrop-blur-sm bg-black/30 dark:bg-black/50 rounded-2xl max-w-md w-full">
+            <div className="text-center px-4 py-6 sm:px-6 sm:py-8 backdrop-blur-sm bg-black/30  rounded-2xl max-w-md w-full">
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
                 Experience Luxury Travel
               </h3>
